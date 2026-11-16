@@ -1,0 +1,84 @@
+================================================================================
+GUIDE D'UTILISATION POWER BI — DATA CHALLENGE BURKINA, DÉFI 2
+================================================================================
+
+Cette configuration Power BI est indépendante du tableau de bord Streamlit.
+Elle ne déplace et ne modifie aucun fichier source. Le fichier
+PowerQuery_Exemples.m contient des exemples de requêtes pour importer les CSV.
+
+1. FICHIERS À UTILISER
+
+Pour le tableau de bord régional principal, importer en priorité :
+
+- ..\..\03_transformation\TEAMDATALYS_03-transformation_D2_architect_panel-regional-education-10ans_v1.csv
+  Panel régional : une ligne par région et année scolaire.
+- ..\..\03_transformation\TEAMDATALYS_03-transformation_D2_engineer_panel-national-milieu-10ans_v1.csv
+  Panel national urbain/rural : une ligne par année scolaire.
+- ..\TEAMDATALYS_04-analyse_D2_scientist_pentes-evolution-convergence_v1.csv
+  Indicateurs de trajectoire et de convergence par région.
+- ..\TEAMDATALYS_04-analyse_D2_analyst_classement-regions-parite_v1.csv
+  Classement régional de la parité.
+
+Autres fichiers complémentaires dans 04_analyse :
+- TEAMDATALYS_04-analyse_D2_analyst_matrice-parite-regionale_v1.csv
+- TEAMDATALYS_04-analyse_D2_analyst_analyse-urbain-rural_v1.csv
+- TEAMDATALYS_04-analyse_D2_scientist_correlations-facteurs-associes_v1.csv
+
+Les fichiers de 01_collecte sont des sources brutes ou de référence. Pour
+reproduire les graphiques du dashboard, commencez par les panels préparés dans
+03_transformation et les indicateurs dans 04_analyse.
+
+2. IMPORTER LES CSV DANS POWER BI DESKTOP
+
+1. Ouvrez Power BI Desktop et créez un rapport vide.
+2. Choisissez Accueil > Obtenir les données > Texte/CSV.
+3. Sélectionnez un des CSV listés ci-dessus.
+4. Vérifiez que le délimiteur est le point-virgule (;), que l'encodage est
+   UTF-8 et que les colonnes apparaissent correctement.
+5. Choisissez Transformer les données pour vérifier les noms et types de
+   colonnes, puis Fermer et appliquer.
+6. Répétez pour les autres CSV nécessaires et enregistrez le rapport au format
+   .pbix, par exemple dans 04_analyse/powerbi/.
+
+Les CSV existants sont séparés par des points-virgules. Si l'aperçu affiche une
+seule colonne, sélectionnez le délimiteur point-virgule dans l'import ou dans
+l'éditeur Power Query.
+
+3. MODÈLE DE DONNÉES CONSEILLÉ
+
+- Utilisez le panel régional comme table principale pour les visuels par
+  région et année.
+- Utilisez le panel national milieu pour les tendances urbain/rural. Il n'a
+  pas de dimension régionale : ne le reliez pas à une région.
+- Pour les requêtes de trajectoire et de classement, créez une relation entre
+  la colonne region et la colonne region du panel régional (relation plusieurs
+  vers un, si la table de référence contient une ligne unique par région).
+- Si vous importez deux tables qui contiennent plusieurs lignes par région,
+  évitez une relation directe plusieurs-à-plusieurs. Créez plutôt une table
+  Régions avec une ligne unique par région, puis reliez chaque table à celle-ci.
+- Vérifiez les types après import : annee_debut et annee_fin en nombre entier,
+  mesures de taux/IPS en nombre décimal et effectifs en nombre entier.
+
+4. EXEMPLES POWER QUERY
+
+Le fichier PowerQuery_Exemples.m montre comment importer les panels régionaux
+et national. Dans Power BI : Transformer les données > Nouvelle source >
+Requête vide > Éditeur avancé. Remplacez le chemin d'exemple dans la requête
+par le chemin absolu de votre dossier Data, puis collez une requête à la fois.
+Renommez les requêtes PanelRegional et PanelNationalMilieu.
+
+Vous pouvez aussi utiliser directement Obtenir les données > Texte/CSV ; les
+exemples M sont facultatifs et servent à rendre le délimiteur et l'encodage
+explicites.
+
+5. ACTUALISER LES DONNÉES
+
+Les requêtes pointent vers les fichiers CSV présents dans le projet. Si le
+dossier Data est déplacé ou si le rapport est ouvert sur un autre ordinateur,
+mettez à jour les chemins des sources dans Paramètres des sources de données
+ou dans Power Query, puis choisissez Actualiser.
+
+================================================================================
+Configuration séparée : 04_analyse/powerbi/
+Application Streamlit conservée : 04_analyse/dashboard_app/
+================================================================================

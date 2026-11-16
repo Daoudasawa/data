@@ -1,0 +1,14 @@
+region;ips_2015_2016;ips_2024_2025;delta_total_10ans;pente_annuelle_ips;r2_regression_ips;trajectoire_ips;pente_annuelle_ratio_effectifs;statut_initial;statut_final;inversion_parite
+CENTRE-NORD;0.948297604035309;0.9845559347313904;0.0363;0.0072;0.6308;Féminisation marquée (Hausse IPS);0.0127;Filles défavorisées;Parité atteinte;OUI
+CENTRE-EST;0.9620958751393534;0.9771620141509034;0.0151;0.0065;0.5317;Féminisation marquée (Hausse IPS);0.0067;Filles défavorisées;Parité atteinte;OUI
+EST;0.9776247848537004;0.9701538362838314;-0.0075;0.0057;0.3451;Féminisation marquée (Hausse IPS);0.0079;Parité atteinte;Parité atteinte;NON
+NORD;0.9741379310344828;0.9872122959426516;0.0131;0.0038;0.3983;Féminisation marquée (Hausse IPS);0.0099;Parité atteinte;Parité atteinte;NON
+HAUTS-BASSINS;1.0181236673773988;1.0125680349372121;-0.0056;0.0035;0.2918;Féminisation marquée (Hausse IPS);0.0052;Parité atteinte;Parité atteinte;NON
+PLATEAU-CENTRAL;0.9798792756539235;0.9619234646804729;-0.018;0.0009;0.0334;Stabilité relative;0.007;Parité atteinte;Filles défavorisées;OUI
+BOUCLE DU MOUHOUN;1.0369426751592357;1.0027551516529205;-0.0342;0.0006;0.0084;Stabilité relative;0.0058;Garçons défavorisés;Parité atteinte;OUI
+CENTRE-SUD;1.0040899795501024;0.986008680920462;-0.0181;-0.0008;0.0454;Stabilité relative;0.0033;Parité atteinte;Parité atteinte;NON
+CENTRE;1.049951028403526;1.0131288637589413;-0.0368;-0.0011;0.0591;Stabilité relative;0.0011;Garçons défavorisés;Parité atteinte;OUI
+CENTRE-OUEST;1.044579533941236;1.0276157984829637;-0.017;-0.0013;0.0424;Stabilité relative;0.0064;Garçons défavorisés;Parité atteinte;OUI
+CASCADES;0.9874213836477987;0.9442876595075171;-0.0431;-0.0014;0.0729;Stabilité relative;0.0017;Parité atteinte;Filles défavorisées;OUI
+SAHEL;0.9470802919708029;0.9087045221939689;-0.0384;-0.0027;0.1317;Stabilité relative;0.0019;Filles défavorisées;Filles défavorisées;NON
+SUD-OUEST;1.0636363636363637;0.9690875863593528;-0.0945;-0.0103;0.7111;Masculinisation relative (Baisse IPS);0.0015;Garçons défavorisés;Filles défavorisées;OUI

@@ -1,0 +1,35 @@
+================================================================================
+LISEZ-MOI — ÉTAPE 05 : INTERPRÉTATION, RESTITUTION ET AIDE À LA DÉCISION
+Data Challenge Burkina (Édition Éducation 2026) — Défi 2
+Équipe : TEAMDATALYS (Rôles portés : Data Scientist & Data Analyst)
+================================================================================
+
+« On ne développe pas, on se développe » — l’éthique de l’éducation en Afrique : sur les traces de Joseph Ki-Zerbo
+
+1. OBJET DU DOSSIER
+Le dossier 05_interpretation/ formalise les enseignements stratégiques, les réponses argumentées aux questions du Défi 2, les recommandations de politiques publiques territoriales et les outils d'aide à la décision à destination des autorités éducatives.
+
+2. INVENTAIRE DES FICHIERS PRODUITS
+
+a) TEAMDATALYS_05-interpretation_D2_scientist_reponses-defis-disparites_v1.md
+   - Rôle : Data Scientist & Data Analyst.
+   - Contenu : Réponses complètes, sourcées et quantifiées aux questions officielles du Défi 2 :
+     (1) Où les écarts sont-ils les plus grands ? (Dualité Sahel vs Sud-Ouest/Centre-Ouest et fracture rurale).
+     (2) Comment évoluent-ils ? (Preuve mathématique de la sigma-convergence et rattrapage rural).
+     (3) Quels sont les facteurs associés ? (Encadrement, chocs sécuritaires, orpaillage documenté).
+     (4) Que reste-t-il inconnu ? (Limites de données : croisement intra-régional, registres miniers).
+
+b) TEAMDATALYS_05-interpretation_D2_scientist_recommandations-politiques-educatives_v1.md
+   - Rôle : Data Scientist.
+   - Contenu : 4 recommandations opérationnelles ciblées par typologie de territoire :
+     - Recommandation 1 : Plan d'urgence scolarisation des filles dans le Sahel (bourses, cantines, ETAS).
+     - Recommandation 2 : Programme de rétention masculine contre l'attraction de l'orpaillage (Sud-Ouest, Cascades).
+     - Recommandation 3 : Consolidation des acquis d'équité en milieu rural national (vélos, cantines, eau/latrines).
+     - Recommandation 4 : Modernisation du système d'information de la DGESS (identifiant unique élève).
+
+c) TEAMDATALYS_05-interpretation_D2_analyst_fiche-directeur-regional-sahel_v1.md
+   - Rôle : Data Analyst.
+   - Contenu : Fiche exécutive décisionnelle d'une page calibrée pour le Directeur Régional de l'Éducation du Sahel (diagnostic chiffré 2024-2025, 3 alertes majeures et plan d'action d'urgence en 3 mesures).
+
+3. LIEN AVEC LA SOLUTION INTERACTIVE (04_analyse/dashboard_app)
+Les conclusions synthétisées dans ce dossier sont dynamiquement explorables et projetables par les décideurs via le tableau de bord Streamlit accessible dans 04_analyse/dashboard_app/.

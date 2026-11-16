@@ -1,0 +1,44 @@
+================================================================================
+LISEZ-MOI — ÉTAPE 03 : TRANSFORMATION ET MODÉLISATION DES DONNÉES
+Data Challenge Burkina (Édition Éducation 2026) — Défi 2
+Équipe : TEAMDATALYS (Rôles portés : Data Architect & Data Engineer)
+================================================================================
+
+« On ne développe pas, on se développe » — l’éthique de l’éducation en Afrique : sur les traces de Joseph Ki-Zerbo
+
+1. OBJET DU DOSSIER
+Le dossier 03_transformation/ regroupe les tables panels consolidées, les référentiels géographiques et les livrables d'architecture de données nécessaires aux analyses du Défi 2.
+
+2. INVENTAIRE DES FICHIERS DÉPOSÉS
+
+a) TEAMDATALYS_03-transformation_D2_architect_referentiel-13-regions_v1.csv
+   - Rôle : Data Architect.
+   - Contenu : Table de référence des 13 régions statistiques canoniques du Burkina Faso avec chef-lieu, code pcode_13 (COD-AB) et table de passage vers les 17 nouvelles régions administratives (loi de 2024/2025).
+
+b) TEAMDATALYS_03-transformation_D2_architect_panel-regional-education-10ans_v1.csv
+   - Rôle : Data Architect.
+   - Dimensions : 130 lignes (13 régions x 10 années scolaires : 2015-2016 à 2024-2025) x 27 colonnes.
+   - Contenu : Table maîtresse unifiée fusionnant effectifs primaires, infrastructures scolaires (écoles, élèves par école), effectifs préscolaires et indicateurs officiels d'accès/parité (TBA, TBS, TAP, CEP, IPS).
+   - Variables de profil : Classification officielle UNESCO dans les deux sens (Filles défavorisées si <0.97, Parité atteinte si 0.97-1.03, Garçons défavorisés si >1.03).
+
+c) TEAMDATALYS_03-transformation_D2_engineer_panel-national-milieu-10ans_v1.csv
+   - Rôle : Data Engineer.
+   - Dimensions : 10 lignes (10 années scolaires).
+   - Contenu : Panel longitudinal comparatif entre milieu urbain et milieu rural au niveau national (effectifs F/G, IPS urbain, IPS rural, part du rural en pourcentage, écart d'IPS).
+
+d) TEAMDATALYS_03-transformation_D2_architect_schema-donnees_v2.sql
+   - Rôle : Data Architect.
+   - Description : Schéma relationnel DDL PostgreSQL complet, idempotent (DROP CASCADE / CREATE TABLE), définissant les tables de dimensions (ref_region, ref_annee_scolaire), les tables de faits avec contraintes d'intégrité strictes (CHECK, FOREIGN KEY, UNIQUE) et deux vues analytiques.
+
+e) TEAMDATALYS_03-transformation_D2_architect_dictionnaire-variables_v1.csv
+   - Rôle : Data Architect.
+   - Contenu : Dictionnaire technique des variables du schéma (nom de table, nom de colonne, type SQL, description en français, unité, règle de calcul, source originale).
+
+f) TEAMDATALYS_03-transformation_D2_architect_parcours-donnees_v1.md
+   - Rôle : Data Architect.
+   - Contenu : Document d'architecture synthétisant le plan du parcours des données (01 à 05), la justification théorique des seuils de parité UNESCO et les contrôles de réconciliation spatio-temporelle.
+
+3. CONTRÔLES D'INTÉGRITÉ RÉALISÉS
+- 13 régions historiques présentes sans rupture sur 10 années consécutives (130 observations régionales).
+- Rapprochement arithmétique : Somme des 13 régions = Total National officiel (écart = 0).
+- Rapprochement par milieu : Urbain + Rural = Total National officiel (écart = 0).

@@ -1,0 +1,142 @@
+================================================================================
+GUIDE DE LANCEMENT — TABLEAU DE BORD DES DISPARITÉS ÉDUCATIVES
+Data Challenge Burkina (Édition Éducation 2026) — Défi 2 — Team Datalys
+================================================================================
+
+Ce guide explique le lancement de app.py sous Windows, depuis la création d'un
+environnement virtuel Python jusqu'à l'ouverture du tableau de bord.
+
+1. PRÉREQUIS
+
+- Avoir Python 3 installé. Dans PowerShell, vérifiez avec :
+      py --version
+  Si la commande py n'existe pas, essayez :
+      python --version
+- Être connecté à Internet lors de l'installation initiale des dépendances.
+- Conserver l'arborescence du projet : l'application cherche ses données dans
+  les dossiers voisins 03_transformation et 04_analyse.
+
+2. OUVRIR UN TERMINAL DANS LE DOSSIER DU PROJET
+
+Ouvrez PowerShell, puis placez-vous à la racine du projet (le dossier qui
+contient 01_collecte, 02_nettoyage, 03_transformation et 04_analyse). Par
+exemple, si le projet se trouve sur le Bureau :
+
+      cd "$HOME\Desktop\Data"
+
+Vérifiez que ce dossier contient bien 04_analyse et 03_transformation :
+
+      Get-ChildItem
+
+3. CRÉER L'ENVIRONNEMENT VIRTUEL (À FAIRE UNE SEULE FOIS)
+
+Depuis la racine du projet, créez un environnement dédié nommé .venv :
+
+      py -m venv .venv
+
+Si la commande py n'est pas disponible, remplacez-la par :
+
+      python -m venv .venv
+
+L'environnement virtuel isole les bibliothèques de cette application de celles
+des autres projets Python. Le dossier .venv est créé à la racine du projet.
+
+4. ACTIVER L'ENVIRONNEMENT VIRTUEL
+
+Dans PowerShell, toujours depuis la racine du projet :
+
+      .\.venv\Scripts\Activate.ps1
+
+Le préfixe (.venv) devrait apparaître au début de l'invite de commande. Si
+PowerShell bloque le script d'activation pour cette session, exécutez :
+
+      Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+      .\.venv\Scripts\Activate.ps1
+
+Cette modification de stratégie ne vaut que pour la fenêtre PowerShell
+actuelle. Vous pouvez aussi utiliser l'invite de commandes Windows (cmd.exe) :
+
+      .venv\Scripts\activate.bat
+
+5. INSTALLER LES DÉPENDANCES (À FAIRE À LA PREMIÈRE UTILISATION)
+
+Avec l'environnement activé, placez-vous dans le dossier de l'application et
+installez les bibliothèques listées dans requirements.txt :
+
+      cd 04_analyse\dashboard_app
+      python -m pip install --upgrade pip
+      python -m pip install -r requirements.txt
+
+Les dépendances comprennent Streamlit (serveur et interface), pandas (lecture
+et préparation des tableaux) et Altair (graphiques). NumPy est également listé
+dans requirements.txt.
+
+6. VÉRIFIER LA PRÉSENCE DES DONNÉES
+
+Avant de lancer l'application, confirmez que ces fichiers existent :
+
+- ..\..\03_transformation\TEAMDATALYS_03-transformation_D2_architect_panel-regional-education-10ans_v1.csv
+- ..\..\03_transformation\TEAMDATALYS_03-transformation_D2_engineer_panel-national-milieu-10ans_v1.csv
+- ..\TEAMDATALYS_04-analyse_D2_scientist_pentes-evolution-convergence_v1.csv
+- ..\TEAMDATALYS_04-analyse_D2_analyst_classement-regions-parite_v1.csv
+
+Les deux premiers fichiers sont nécessaires aux graphiques et aux indicateurs;
+les deux suivants fournissent les analyses affichées dans le tableau de bord.
+Si un fichier est absent ou déplacé, l'application ne pourra pas charger les
+données.
+
+7. LANCER app.py
+
+Assurez-vous d'être toujours dans 04_analyse\dashboard_app et que .venv est
+activé, puis lancez :
+
+      python -m streamlit run app.py
+
+Streamlit démarre un serveur local. Le terminal affiche généralement l'adresse
+      http://localhost:8501
+Ouvrez cette adresse dans votre navigateur si l'onglet ne s'ouvre pas
+automatiquement. Gardez le terminal ouvert pendant l'utilisation du tableau de
+bord : le fermer arrête le serveur.
+
+Pour arrêter l'application, revenez au terminal et appuyez sur Ctrl+C.
+
+8. RELANCER PLUS TARD
+
+À chaque nouvelle session, ouvrez un terminal à la racine du projet, activez
+l'environnement, rejoignez le dossier de l'application et relancez Streamlit :
+
+      cd "$HOME\Desktop\Data"
+      .\.venv\Scripts\Activate.ps1
+      cd 04_analyse\dashboard_app
+      python -m streamlit run app.py
+
+Il n'est pas nécessaire de réinstaller les dépendances à chaque lancement.
+Il faudra le faire si l'environnement .venv est supprimé ou si
+requirements.txt change.
+
+9. LANCEMENT AVEC LE FICHIER .BAT (OPTIONNEL)
+
+Après activation de .venv et depuis le dossier dashboard_app, vous pouvez
+aussi lancer :
+
+      .\lancer_dashboard.bat
+
+Le fichier .bat exécute « streamlit run app.py » et attend une touche à la fin.
+Il ne crée pas et n'active pas lui-même l'environnement virtuel. Activez donc
+.venv avant de l'utiliser. La commande `python -m streamlit run app.py` reste
+la méthode recommandée, car elle appelle Streamlit depuis l'interpréteur actif.
+
+10. DÉPANNAGE RAPIDE
+
+- « No module named streamlit » : vérifiez que .venv est activé, puis exécutez
+  `python -m pip install -r requirements.txt` depuis dashboard_app.
+- « FileNotFoundError » au démarrage : vérifiez l'arborescence du projet et la
+  présence des quatre fichiers de données indiqués à l'étape 6.
+- Port 8501 déjà utilisé : Streamlit peut proposer une autre adresse dans le
+  terminal. Ouvrez l'adresse qu'il affiche.
+- Pour quitter l'environnement virtuel après avoir arrêté l'application :
+      deactivate
+
+================================================================================
+Application : app.py | Dépendances : requirements.txt
+================================================================================

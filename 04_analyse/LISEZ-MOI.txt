@@ -1,0 +1,47 @@
+================================================================================
+LISEZ-MOI — ÉTAPE 04 : ANALYSES STATISTIQUES ET TABLEAU DE BORD
+Data Challenge Burkina (Édition Éducation 2026) — Défi 2
+Équipe : TEAMDATALYS (Rôles portés : Data Analyst & Data Scientist)
+================================================================================
+
+« On ne développe pas, on se développe » — l’éthique de l’éducation en Afrique : sur les traces de Joseph Ki-Zerbo
+
+1. OBJET DU DOSSIER
+Le dossier 04_analyse/ contient l'ensemble des modélisations statistiques, des classements de disparités, des analyses de convergence et l'application interactive réexécutable du Défi 2.
+
+2. INVENTAIRE DES FICHIERS PRODUITS
+
+a) TEAMDATALYS_04-analyse_D2_analyst_matrice-parite-regionale_v1.csv
+   - Rôle : Data Analyst.
+   - Contenu : Matrice 13 régions x 10 années de l'Indice de Parité des Sexes officiel (TBS).
+
+b) TEAMDATALYS_04-analyse_D2_analyst_classement-regions-parite_v1.csv
+   - Rôle : Data Analyst.
+   - Contenu : Classement des 13 régions selon leur éloignement absolu à la parité stricte (1.00) pour l'année scolaire 2024-2025, ventilant le sens de l'inégalité (Filles défavorisées vs Garçons défavorisés).
+
+c) TEAMDATALYS_04-analyse_D2_scientist_pentes-evolution-convergence_v1.csv
+   - Rôle : Data Scientist.
+   - Contenu : Modélisation des trajectoires temporelles par régression linéaire simple (pente annuelle de l'IPS, R² de la tendance, test de sigma-convergence spatiale et identification des régions à inversion de parité).
+
+d) TEAMDATALYS_04-analyse_D2_analyst_analyse-urbain-rural_v1.csv
+   - Rôle : Data Analyst.
+   - Contenu : Série temporelle comparative de l'accès scolaire en milieu urbain et rural national (taux de croissance annuels, évolution des écarts et part du rural).
+
+e) TEAMDATALYS_04-analyse_D2_scientist_correlations-facteurs-associes_v1.csv
+   - Rôle : Data Scientist.
+   - Contenu : Corrélations de Pearson exploratoires entre la taille des écoles (élèves par école), le niveau global de scolarisation et l'indice de parité (avec rappel des limites sur petits effectifs N=13).
+
+f) TEAMDATALYS_04-analyse_D2_analyst_contexte-orpaillage-qualitatif_v1.md
+   - Rôle : Data Analyst.
+   - Contenu : Note d'analyse qualitative reliant l'orpaillage artisanal documenté (Sud-Ouest, Cascades, Centre-Ouest) à l'inversion de parité observée (décrochage scolaire masculin), avec citation des sources officielles (MENAPLN, PME, INSD).
+
+g) dashboard_app/ (Solution interactive réexécutable)
+   - app.py : Application Streamlit complète, interactive et modulaire (5 onglets thématiques, filtres par région et année, indicateurs d'équité UNESCO).
+   - requirements.txt : Dépendances logicielles standards (streamlit, pandas, altair, numpy).
+   - lancer_dashboard.bat : Script d'exécution en 1 clic pour Windows.
+
+3. PROCÉDURE DE RELANCE DU TABLEAU DE BORD LOCAL
+Depuis un terminal à la racine du projet :
+   cd 04_analyse/dashboard_app
+   streamlit run app.py
+L'application s'ouvre automatiquement dans votre navigateur par défaut à l'adresse http://localhost:8501.

@@ -1,0 +1,28 @@
+table;colonne;type_sql;description;unite;source
+panel-regional-education-10ans;region;VARCHAR(50);Nom canonique de la région (13 régions historiques);Texte;Feuil1 DGESS
+panel-regional-education-10ans;pcode_13;VARCHAR(10);Code géographique normalisé COD-AB de l'ancienne région;Code (ex: BF13);bfa_admin1 OCHA
+panel-regional-education-10ans;annee_scolaire;VARCHAR(9);Année scolaire au format AAAA-AAAA;Format AAAA-AAAA;Normalisation DGESS
+panel-regional-education-10ans;annee_debut;INTEGER;Année civile d'ouverture de l'année scolaire;Année (ex: 2015);Calcul
+panel-regional-education-10ans;annee_fin;INTEGER;Année civile de clôture de l'année scolaire;Année (ex: 2016);Calcul
+panel-regional-education-10ans;primaire_garcons;INTEGER;Effectif des garçons scolarisés au primaire;Nombre d'élèves;Feuil1 DGESS
+panel-regional-education-10ans;primaire_filles;INTEGER;Effectif des filles scolarisées au primaire;Nombre d'élèves;Feuil1 DGESS
+panel-regional-education-10ans;primaire_total;INTEGER;Effectif total scolarisé au primaire (Filles + Garçons);Nombre d'élèves;Feuil1 DGESS
+panel-regional-education-10ans;primaire_ecart_f_g;INTEGER;Différence brute Filles - Garçons;Nombre d'élèves (+ ou -);Calcul (F - G)
+panel-regional-education-10ans;primaire_ratio_f_g;NUMERIC(6,4);Ratio filles/garçons calculé sur les effectifs inscrits;Ratio;Calcul (F / G)
+panel-regional-education-10ans;profil_parite_effectifs;VARCHAR(30);Typologie de parité sur effectifs (<0.97 Filles défavorisées, >1.03 Garçons défavorisés);Catégorie UNESCO;Classification
+panel-regional-education-10ans;ecoles_total;INTEGER;Nombre total d'écoles primaires (public + privé);Établissements;Feuil13 DGESS
+panel-regional-education-10ans;eleves_par_ecole;NUMERIC(6,1);Nombre moyen d'élèves par école primaire;Élèves / école;Calcul (primaire_total / ecoles_total)
+panel-regional-education-10ans;prescolaire_total;INTEGER;Effectif total scolarisé au préscolaire;Nombre d'élèves;PRESCOLAIRE DGESS
+panel-regional-education-10ans;tba_total;NUMERIC(5,2);Taux Brut d'Admission au primaire (%);%;Feuil6 DGESS
+panel-regional-education-10ans;ips_tba;NUMERIC(6,4);Indice de Parité des Sexes officiel du TBA;Indice;Feuil10 DGESS
+panel-regional-education-10ans;tbs_total;NUMERIC(5,2);Taux Brut de Scolarisation au primaire (%);%;Feuil7 DGESS
+panel-regional-education-10ans;ips_tbs;NUMERIC(6,4);Indice de Parité des Sexes officiel du TBS;Indice;Feuil11 DGESS
+panel-regional-education-10ans;profil_parite_tbs;VARCHAR(30);Typologie officielle de parité sur TBS (<0.97 F, >1.03 G);Catégorie UNESCO;Classification
+panel-regional-education-10ans;tap_total;NUMERIC(5,2);Taux d'Achèvement du Primaire (%);%;Feuil8 DGESS
+panel-regional-education-10ans;ips_tap;NUMERIC(6,4);Indice de Parité des Sexes officiel du TAP;Indice;Feuil12 DGESS
+panel-regional-education-10ans;cep_reussite_total;NUMERIC(5,2);Taux de réussite à l'examen du CEP (%);%;Feuil9 DGESS
+panel-national-milieu-10ans;annee_scolaire;VARCHAR(9);Année scolaire au format AAAA-AAAA;Format AAAA-AAAA;Feuil3 DGESS
+panel-national-milieu-10ans;ips_urbain;NUMERIC(6,4);Indice de parité filles/garçons en milieu urbain national;Ratio F/G;Calcul Feuil3
+panel-national-milieu-10ans;ips_rural;NUMERIC(6,4);Indice de parité filles/garçons en milieu rural national;Ratio F/G;Calcul Feuil3
+panel-national-milieu-10ans;part_rural_pct;NUMERIC(5,2);Part des effectifs du primaire scolarisés en milieu rural;%;Calcul Feuil3
+panel-national-milieu-10ans;ecart_ips_urbain_rural;NUMERIC(6,4);Différence IPS Urbain - IPS Rural;Différence de ratio;Calcul

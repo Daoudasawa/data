@@ -1,0 +1,61 @@
+================================================================================
+LISEZ-MOI — ÉTAPE 02 : NETTOYAGE DES DONNÉES
+Data Challenge Burkina (Édition Éducation 2026) — Défi 2
+Équipe : TEAMDATALYS (Rôle principal de l'étape : Data Engineer)
+================================================================================
+
+« On ne développe pas, on se développe » — l’éthique de l’éducation en Afrique : sur les traces de Joseph Ki-Zerbo
+
+1. OBJET DU DOSSIER
+Le dossier 02_nettoyage/ contient les jeux de données tabulaires nettoyés, harmonisés et vérifiés, issus du dépouillement rigoureux du classeur maître DGESS présent dans 01_collecte/.
+
+2. INVENTAIRE DES FICHIERS PRODUITS
+
+a) TEAMDATALYS_02-nettoyage_D2_engineer_utils-nettoyage_v1.py
+   - Rôle : Data Engineer.
+   - Description : Script utilitaire réutilisable contenant le dictionnaire canonique des 13 régions historiques, le parseur d'années scolaires multi-formats et les fonctions de contrôle d'intégrité arithmétique.
+
+b) TEAMDATALYS_02-nettoyage_D2_engineer_effectifs-primaire-region-propre_v1.csv
+   - Source brute : Feuil1 du classeur DGESS.
+   - Contenu : Effectifs scolaires du primaire par région, sexe et année scolaire.
+   - Dimensions : 130 lignes (13 régions x 10 années scolaires : 2015-2016 à 2024-2025).
+   - Colonnes : region, annee_scolaire, annee_debut, annee_fin, effectif_garcons, effectif_filles, effectif_total, ecart_f_g, ratio_f_g.
+   - Contrôle arithmétique : effectif_total = effectif_garcons + effectif_filles (100% vérifié).
+
+c) TEAMDATALYS_02-nettoyage_D2_engineer_effectifs-primaire-milieu-propre_v1.csv
+   - Source brute : Feuil3 du classeur DGESS.
+   - Contenu : Effectifs scolaires du primaire ventilés par milieu (URBAIN, RURAL) au niveau national sur 10 ans.
+   - Dimensions : 20 lignes (2 milieux x 10 années scolaires).
+   - Colonnes : milieu, annee_scolaire, annee_debut, annee_fin, effectif_garcons, effectif_filles, effectif_total, ecart_f_g, ratio_f_g.
+
+d) TEAMDATALYS_02-nettoyage_D2_engineer_effectifs-prescolaire-region-propre_v1.csv
+   - Source brute : Tableau 1 de la feuille PRESCOLAIRE du classeur DGESS.
+   - Contenu : Effectifs préscolaires par région et sexe sur 10 ans.
+   - Dimensions : 130 lignes (13 régions x 10 années scolaires).
+   - Colonnes : region, annee_scolaire, annee_debut, annee_fin, effectif_garcons, effectif_filles, effectif_total, ecart_f_g, ratio_f_g.
+
+e) TEAMDATALYS_02-nettoyage_D2_architect_indicateurs-dgess-region-propre_v1.csv
+   - Source brute : Feuil6 (TBA), Feuil7 (TBS), Feuil8 (TAP), Feuil9 (CEP), Feuil10 (IPS TBA), Feuil11 (IPS TBS), Feuil12 (IPS TAP).
+   - Contenu : Consolidation structurée des indicateurs officiels d'accès, d'achèvement et de parité calculés par la DGESS.
+   - Dimensions : 130 lignes (13 régions x 10 années scolaires).
+   - Colonnes : region, annee_scolaire, annee_debut, annee_fin, tba_garcons, tba_filles, tba_total, ips_tba, tbs_garcons, tbs_filles, tbs_total, ips_tbs, tap_garcons, tap_filles, tap_total, ips_tap, cep_reussite_garcons, cep_reussite_filles, cep_reussite_total.
+
+f) TEAMDATALYS_02-nettoyage_D2_engineer_ecoles-primaire-region-propre_v1.csv
+   - Source brute : Feuil13 du classeur DGESS.
+   - Contenu : Nombre d'écoles primaires par région et statut (Public, Privé, Total) sur 10 ans.
+   - Dimensions : 130 lignes (13 régions x 10 années scolaires).
+   - Colonnes : region, annee_scolaire, annee_debut, annee_fin, ecoles_public, ecoles_prive, ecoles_total.
+
+g) TEAMDATALYS_02-nettoyage_D2_engineer_totaux-officiels-controle_v1.csv
+   - Contenu : Table d'audit isolant les lignes "NATIONAL" et totaux publiés officiellement par la DGESS sur les 10 ans.
+   - Dimensions : 10 lignes (1 par année scolaire).
+
+h) TEAMDATALYS_02-nettoyage_D2_engineer_journal-nettoyage_v1.md
+   - Document exhaustif traçant chaque action de nettoyage, le problème traité, la méthode employée et la validation des contrôles.
+
+3. RÈGLES DE NETTOYAGE ET GARANTIES DE QUALITÉ
+- Aucune correction silencieuse : Toutes les opérations sont journalisées.
+- Traitement des cellules fusionnées : Forward-fill rigoureux appliqué sur les colonnes d'entités (région, milieu).
+- Normalisation : Uniformisation des libellés régionaux (13 régions historiques canoniques) et des années scolaires (format AAAA-AAAA).
+- Séparation des agrégats : Aucune ligne de total résiduelle dans les tables régionales.
+- Vérification d'intégrité : Cohérence arithmétique vérifiée à 100%.

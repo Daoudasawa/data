@@ -1,0 +1,3 @@
+relation_testee;coefficient_pearson_r;signification;limites_statistiques
+Élèves par école vs IPS du TBS;0.1476;Faible corrélation positive (r=+0.20) : la taille des établissements scolaires n'est pas un déterminant direct de la parité;Échantillon de 13 régions (130 points agrégés). Agrégation spatiale masquant l'hétérogénéité intra-régionale.
+Niveau global de scolarisation (TBS Total) vs IPS du TBS;0.3179;Corrélation positive modérée : les régions affichant un taux de scolarisation plus élevé tendent à être plus équilibrées ou légèrement plus féminisées;"Relation macro non causale ; les contraintes d'offre et de sécurité agissent simultanément sur les deux variables."

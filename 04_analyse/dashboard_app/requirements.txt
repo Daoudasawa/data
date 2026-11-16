@@ -1,0 +1,5 @@
+# Dépendances pour relancer le tableau de bord localement (Défi 2 - Team Datalys)
+streamlit>=1.20.0
+pandas>=1.5.0
+altair>=4.2.0
+numpy>=1.23.0

@@ -1,0 +1,75 @@
+================================================================================
+LISEZ-MOI — ÉTAPE 01 : COLLECTE DES DONNÉES BRUTES
+Data Challenge Burkina (Édition Éducation 2026) — Défi 2
+Équipe : TEAMDATALYS (Membre 1: Data Engineer / Data Analyst ; Membre 2: Data Architect / Data Scientist)
+================================================================================
+
+« On ne développe pas, on se développe » — l’éthique de l’éducation en Afrique : sur les traces de Joseph Ki-Zerbo
+
+1. OBJET DU DOSSIER
+Le dossier 01_collecte/ regroupe l'ensemble des données sources brutes nécessaires au Défi 2 (Analyse des disparités d'accès à l'éducation : parité fille-garçon et milieu urbain/rural).
+RÈGLE D'OR : Aucun fichier présent dans ce dossier n'a été altéré, corrigé ou filtré. Toutes les données sont rigoureusement identiques aux fichiers mis à disposition par les organisateurs et validées par empreinte numérique SHA256.
+
+2. CONVENTION DE NOMMAGE STRICTE
+Tous les fichiers respectent le format officiel :
+EQUIPE_ETAPE_DEFI_ROLE_description_vN
+- EQUIPE       : TEAMDATALYS (sans espace ni accent)
+- ETAPE        : 01-collecte
+- DEFI         : D2 (Défi 2 : Disparités d'accès)
+- ROLE         : engineer (Data Engineer) ou architect (Data Architect)
+- description  : Nom explicite sans accent ni caractère spécial
+- vN           : Numéro de version (v1)
+
+3. INVENTAIRE DES FICHIERS DÉPOSÉS DANS 01_COLLECTE
+
+a) TEAMDATALYS_01-collecte_D2_engineer_dgess-prescolaire-primaire-brut_v1.xlsx
+   - Source originale : Fichier maître fourni à la racine "DONNEES_STATISTQUES_ PRESCOLAIRE ET PRIMAIRE_2016_2025_DCB.xlsx".
+   - Producteur : Ministère de l'Éducation Nationale, de l'Alphabétisation et de la Promotion des Langues Nationales (MENAPLN) / Direction Générale des Études et des Statistiques Sectorielles (DGESS).
+   - Publication : Statistiques du Préscolaire et du Primaire (2015/2016 à 2024/2025), Data Challenge Burkina 2026.
+   - Année de publication : 2026.
+   - Taille : 100 968 octets | 14 feuilles de calcul.
+   - Usage Défi 2 : Cœur de l'analyse empirique (effectifs par sexe, région, milieu national, niveau, statut, indicateurs officiels TBA, TBS, TAP, CEP, IPS et écoles).
+   - Statut : RETENU.
+
+b) TEAMDATALYS_01-collecte_D2_engineer_sig-admin1-limites-brut_v1.csv
+   - Source originale : DataPack_DCB_2026/data/04_Cartographie_SIG/COD-AB_limites_administratives/bfa_admin_boundaries__bfa_admin1.csv.
+   - Producteur : OCHA / COD-AB (Common Operational Datasets - Administrative Boundaries) Burkina Faso.
+   - Publication : Burkina Faso Administrative Boundaries v03.
+   - Année de publication : 2025.
+   - Taille : 4 543 octets | 18 lignes.
+   - Usage Défi 2 : Table de correspondance géographique reliant les 17 nouvelles régions administratives aux 13 anciennes régions statistiques via la colonne "adm1_pcode_old".
+   - Statut : RETENU.
+
+c) TEAMDATALYS_01-collecte_D2_engineer_unesco-bm-education-long-terme-brut_v1.csv
+   - Source originale : DataPack_DCB_2026/data/01_Education_MENAPLN_DGESS/Series_longues_BM_UNESCO/education_bfa.csv.
+   - Producteur : Banque Mondiale / Institut de Statistique de l'UNESCO (ISU).
+   - Publication : World Development Indicators & UNESCO Institute for Statistics Database.
+   - Année de publication : 2024.
+   - Taille : 1 504 810 octets | 15 281 lignes.
+   - Usage Défi 2 : Étalonnage macroéconomique et benchmark historique (tendances de long terme de la scolarisation au Burkina Faso depuis 2007).
+   - Statut : RETENU.
+
+d) TEAMDATALYS_01-collecte_D2_engineer_post-primaire-2019-2020-brut_v1.csv
+   - Source originale : DataPack_DCB_2026/data/01_Education_MENAPLN_DGESS/Post_Primaire_Secondaire/Annuaire_post-primaire_secondaire_2019-2020_ReliefWeb.csv.
+   - Producteur : MENAPLN / DGESS.
+   - Publication : Annuaire statistique du post-primaire et du secondaire 2019-2020 (ReliefWeb).
+   - Année de publication : 2020.
+   - Taille : 1 444 524 octets.
+   - Usage Défi 2 : Cadrage qualitatif de la transition primaire -> post-primaire (non inclus dans le panel longitudinal 10 ans).
+   - Statut : RETENU (mention contextuelle).
+
+e) TEAMDATALYS_01-collecte_D2_architect_ref-sources_v1.csv
+   - Rôle : Data Architect.
+   - Description : Table de référence normalisée (id_source, producteur, publication, annee_publication, fichier_brut_local, feuilles_utilisees, portee_geographique, periode_couverte, usage_defi2, statut_retenu, motif_si_ecarte, date_acces).
+   - Statut : LIVRABLE ARCHITECT D'ÉTAPE 1.
+
+4. DONNÉES DU DATAPACK ÉCARTÉES DE L'ANALYSE DU DÉFI 2 (ET JUSTIFICATION)
+Sur les 345 fichiers du DataPack, seuls ceux listés ci-dessus sont retenus pour le Défi 2. Les catégories suivantes ont été formellement écartées :
+- Fichiers PDF d'annuaires et de dépliants (CNS514 à CNS574) : Écartés car redondants avec le classeur structuré DGESS fourni, et non tabulaires.
+- Projections démographiques RGPH 2019 (INSD) : Écartées car au format texte issu d'extraction PDF non stabilisé ; les taux de scolarisation (TBS/TBA) et IPS officiels calculés par la DGESS font foi.
+- Enquêtes EDS 2021 et EHCVM 2021 : Écartées car données ponctuelles transversales non alignées sur les séries administratives annuelles exhaustives.
+- Fichiers PDI (CONASUR) : Écartés du panel quantitatif continu car ne couvrant que 2020-2021 (conservés comme point de repère qualitatif dans le rapport).
+- Données sur l'orpaillage : NON TROUVÉ dans le DataPack. Aucun registre quantitatif officiel géolocalisé n'est disponible ; l'orpaillage sera traité comme hypothèse documentaire externe.
+
+5. VÉRIFICATION D'INTÉGRITÉ
+Les empreintes SHA256 des fichiers bruts ont été vérifiées lors de la copie par le script et sont enregistrées pour garantir une reproductibilité parfaite.
